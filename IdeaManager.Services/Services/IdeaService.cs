@@ -38,4 +38,5 @@ public class IdeaService : IIdeaService
         idea.VoteCount++;
         await _unitOfWork.IdeaRepository.AddAsync(idea); // Pour simuler une mise à jour simplifiée
     }
+
 }
