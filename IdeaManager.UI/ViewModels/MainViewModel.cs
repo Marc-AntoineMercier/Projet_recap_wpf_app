@@ -5,14 +5,14 @@ namespace IdeaManager.UI.ViewModels
 {
     public partial class MainViewModel : ViewModelBase
     {
-        public NavigationService Navigator { get; }
+        public INavigationService Navigator { get; }
 
         private readonly IdeaFormViewModel _formViewModel;
         private readonly IdeaListViewModel _listViewModel;
         private readonly DashboardViewModel _dashboardViewModel;
 
         public MainViewModel(
-            NavigationService navigationService,
+            INavigationService navigationService,
             IdeaFormViewModel formViewModel,
             IdeaListViewModel listViewModel,
             DashboardViewModel dashboardViewModel)

@@ -1,9 +1,23 @@
 ﻿<Application x:Class="IdeaManager.UI.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:IdeaManager.UI"
-             StartupUri="MainWindow.xaml">
+             xmlns:views="clr-namespace:IdeaManager.UI.Views"
+             xmlns:viewModels="clr-namespace:IdeaManager.UI.ViewModels">
     <Application.Resources>
-         
+        <ResourceDictionary>
+
+            <DataTemplate DataType="{x:Type viewModels:IdeaFormViewModel}">
+                <views:IdeaFormView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModels:IdeaListViewModel}">
+                <views:IdeaListView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModels:DashboardViewModel}">
+                <views:DashboardView />
+            </DataTemplate>
+
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

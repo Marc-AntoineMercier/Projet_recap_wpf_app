@@ -5,7 +5,7 @@
              xmlns:converters="clr-namespace:IdeaManager.UI.Converters">
 
     <UserControl.Resources>
-        <converters:StringToVisibilityConverter x:Key="StringToVisibilityConverter"/>
+        <converters:StringToVisibilityConverter x:Key="StringToVisibilityConverter" />
     </UserControl.Resources>
 
     <Border Background="#F9F9F9"
@@ -24,8 +24,10 @@
                        Margin="0 0 0 20" />
 
             <TextBlock Text="Titre :" />
-            <TextBox Text="{Binding Title, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
-            <TextBlock Foreground="Red" FontSize="11" Text="{Binding (Validation.Errors)[0].ErrorContent, RelativeSource={RelativeSource Self}}" />
+            <TextBox Text="{Binding Title, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" />
+            <TextBlock Foreground="Red"
+                       FontSize="11"
+                       Text="{Binding (Validation.Errors)[0].ErrorContent, RelativeSource={RelativeSource Self}}" />
 
             <TextBlock Text="Description :" />
             <TextBox Text="{Binding Description}"
@@ -37,7 +39,7 @@
                 <Button Content="Soumettre"
                         Width="100"
                         Margin="5 0"
-                        Command="{Binding SubmitCommand}"/>
+                        Command="{Binding SubmitCommand}" />
                 <Button Content="Effacer"
                         Width="100"
                         Margin="5 0"
