@@ -19,7 +19,7 @@ public partial class App : Application
     {
         var services = new ServiceCollection();
 
-        services.AddDataServices("Data Source=C:\\Users\\Marco\\Bureau\\10-github\\Projet_recap_wpf_app\\IdeaManager.Data\\bin\\Debug\\net8.0\\idea.db");
+        services.AddDataServices("Data Source=C:\\Users\\6240201\\Bureau\\Projet_recap_wpf_app\\IdeaManager.Data\\bin\\Debug\\net8.0\\idea.db");
 
         services.AddDomainServices();
         services.AddUIServices();
