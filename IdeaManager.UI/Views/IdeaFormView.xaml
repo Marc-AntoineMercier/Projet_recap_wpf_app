@@ -1,14 +1,59 @@
-﻿<Page x:Class="IdeaManager.UI.Views.IdeaFormView"
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:IdeaManager.UI.Views"
-      mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="IdeaFormView">
+﻿<UserControl x:Class="IdeaManager.UI.Views.IdeaFormView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:IdeaManager.UI.Views"
+             xmlns:converters="clr-namespace:IdeaManager.UI.Converters">
 
-    <Grid>
-        
-    </Grid>
-</Page>
+    <UserControl.Resources>
+        <converters:StringToVisibilityConverter x:Key="StringToVisibilityConverter"/>
+    </UserControl.Resources>
+
+    <Border Background="#F9F9F9"
+            CornerRadius="10"
+            Padding="20"
+            Width="800"
+            Height="Auto"
+            BorderBrush="#DDD"
+            BorderThickness="1">
+
+        <StackPanel>
+
+            <TextBlock Text="Soumettre une idée"
+                       FontSize="22"
+                       FontWeight="Bold"
+                       Margin="0 0 0 20" />
+
+            <TextBlock Text="Titre :" />
+            <TextBox Text="{Binding Title, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
+            <TextBlock Foreground="Red" FontSize="11" Text="{Binding (Validation.Errors)[0].ErrorContent, RelativeSource={RelativeSource Self}}" />
+
+            <TextBlock Text="Description :" />
+            <TextBox Text="{Binding Description}"
+                     AcceptsReturn="True"
+                     Height="100"
+                     TextWrapping="Wrap" />
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 10 0 0">
+                <Button Content="Soumettre"
+                        Width="100"
+                        Margin="5 0"
+                        Command="{Binding SubmitCommand}"/>
+                <Button Content="Effacer"
+                        Width="100"
+                        Margin="5 0"
+                        Command="{Binding ClearInputCommand}" />
+            </StackPanel>
+
+            <TextBlock Foreground="Green"
+                       FontSize="13"
+                       Margin="0 10 0 0"
+                       Text="{Binding ConfirmationMessage}"
+                       Visibility="{Binding ConfirmationMessage, Converter={StaticResource StringToVisibilityConverter}}"/>
+            <TextBlock Foreground="Red"
+                       FontSize="13"
+                       Margin="0 5 0 0"
+                       Text="{Binding ErrorMessage}"
+                       Visibility="{Binding ErrorMessage, Converter={StaticResource StringToVisibilityConverter}}"/>
+        </StackPanel>
+    </Border>
+</UserControl>
