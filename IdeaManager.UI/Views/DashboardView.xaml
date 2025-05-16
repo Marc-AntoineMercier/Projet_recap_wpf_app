@@ -1,14 +1,17 @@
-﻿<Page x:Class="IdeaManager.UI.Views.DashboardView"
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:IdeaManager.UI.Views"
-      mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="DashboardView">
+﻿<UserControl x:Class="IdeaManager.UI.Views.DashboardView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d">
+    <Grid Margin="20">
+        <StackPanel>
+            <TextBlock Text="Tableau de bord" FontSize="24" FontWeight="Bold" Margin="0 0 0 20"/>
 
-    <Grid>
-        
+            <TextBlock Text="{Binding TotalIdeasText}" FontSize="16" Margin="0 5"/>
+            <TextBlock Text="{Binding ApprovedIdeasText}" FontSize="16" Margin="0 5"/>
+            <TextBlock Text="{Binding PendingIdeasText}" FontSize="16" Margin="0 5"/>
+            <TextBlock Text="{Binding RejectedIdeasText}" FontSize="16" Margin="0 5"/>
+        </StackPanel>
     </Grid>
-</Page>
+</UserControl>
