@@ -1,12 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using IdeaManager.UI.ViewModels;
+using System.Windows.Navigation;
 
 namespace IdeaManager.UI.Navigation
 {
-    internal class NavigationService
+    public partial class NavigationService : ObservableObject
     {
+        [ObservableProperty]
+        private ViewModelBase currentViewModel;
+
+        public async void NavigateTo(ViewModelBase viewModel)
+        {
+            CurrentViewModel = viewModel;
+            await viewModel.OnNavigatedToAsync();
+        }
     }
 }
