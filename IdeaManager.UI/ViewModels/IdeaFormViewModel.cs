@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace IdeaManager.UI.ViewModels
 {
-    internal class IdeaFormViewModel
+    public partial class IdeaFormViewModel : ViewModelBase
     {
     }
 }

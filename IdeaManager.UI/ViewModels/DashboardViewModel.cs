@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace IdeaManager.UI.ViewModels
 {
-    internal class DashboardViewModel
+    public partial class DashboardViewModel : ViewModelBase
     {
     }
 }
